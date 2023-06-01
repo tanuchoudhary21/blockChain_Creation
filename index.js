@@ -1,9 +1,13 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const BlockChain = require("./blockchain");
+const PubSub = require('./publishSubscribe');
 
 const app = express();
-const bodyParser = require("body-parser");
+
 const blockchain = new BlockChain();
+const pubSubObj = new PubSub({blockchain});
+setTimeout(()=> pubSubObj.broadcastChain(), 1000);
 
 app.use(bodyParser.json());
 
