@@ -10,14 +10,14 @@ class Blockchain{
     addBlock({data}){
         const newBlock = Block.mineBlock({
             prevBlock : this.chain[this.chain.length-1],
-            data 
-        })
+            data,
+        });
 
         this.chain.push(newBlock);
     }
 
-    replaceChain(){
-        if(chain <= this.chain.length){
+    replaceChain(chain){
+        if(chain.length <= this.chain.length){
             console.error("The incoming chain is not longer");
             return;
         }
